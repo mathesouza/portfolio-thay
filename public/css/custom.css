@@ -1,0 +1,14 @@
+body{
+    background-color:#110e17
+}
+.bg-dark{
+    background-color: #011a3f!important
+}
+.navbar-dark{
+    background-color: #6c6f9b!important
+
+}
+#nav ul {
+    display: inline-block;
+    list-style-type: none;
+}
