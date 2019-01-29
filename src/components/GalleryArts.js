@@ -3,6 +3,8 @@ import Gallery from 'react-grid-gallery';
 
 import base from '../base';
 
+const IMAGES =[{}]
+
 class GalleryArts extends Component{
     constructor(props){
         super(props)
@@ -20,12 +22,17 @@ class GalleryArts extends Component{
                 {
                     Object.keys(this.state.artes).map((key)=>{
                         const arte = this.state.artes[key]
-                        return <img src={arte.foto}/>
+                        let teste={
+                            src:arte.foto,
+                            thumbnail:arte.foto,
+                        }
+                        IMAGES.push(teste)
                     })
 
                 }
+                <Gallery images={IMAGES}/>
             </div>
         )
     }
 }
-export default GalleryArts 
+export default GalleryArts
