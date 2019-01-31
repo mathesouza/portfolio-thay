@@ -8,9 +8,12 @@ class novaArte extends Component {
     constructor(props){
         super(props)
         this.state = {
-
+            titulo:'',
+            descricao:'',
+            src:''
         }
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
     handleSubmit(e){
 
@@ -21,19 +24,25 @@ class novaArte extends Component {
 
         ref.put(file).then(img =>{
             ref.getDownloadURL().then(url=>{
+                const img = new Image()
+                img.src = url
 
-                var novaArte = {
-                    titulo : this.titulo.value,
-                    sub : this.descricao.value,
-                    foto: url
+                img.onload = () => {
+                    var novaArte = {
+                        titulo : this.titulo.value,
+                        sub : this.descricao.value,
+                        src: url,
+                        thumbnailWidth:(img.width/2),
+                        thumbnailHeight:(img.height/2)
+                    }
+
+                    Base.push('artes',{
+                        data: novaArte
+                    }).catch(err=>{
+                        console.log(err)
+                    })
                 }
-                console.log(novaArte)
 
-                Base.push('artes',{
-                    data: novaArte
-                }).catch(err=>{
-                    console.log(err)
-                })
             }).catch(err=>{
                 console.log(err)
             })
@@ -44,7 +53,12 @@ class novaArte extends Component {
         e.preventDefault()
     }
 
-    handleChange() {
+    handleChange(e) {
+        let change = {}
+
+        change[e.target.id] = e.target.value
+
+        this.setState(change)
 
     }
 
@@ -57,17 +71,17 @@ class novaArte extends Component {
                     <form onSubmit={this.handleSubmit}>
                         <div className='form-group'>
                             <label htmlFor='productName'>Título</label>
-                            <input id='titulo' className='form-control' type='text' ref={(ref) => this.titulo = ref} />
+                            <input id='titulo' className='form-control' type='text' onChange={this.handleChange} ref={(ref) => this.titulo = ref}/>
                         </div>
                         <div className='form-group'>
                             <label htmlFor='descricao'>Descrição </label>
-                            <textarea id='descricao' className='form-control' ref={(ref) => this.descricao = ref} />
+                            <textarea id='descricao' className='form-control' onChange={this.handleChange} ref={(ref) => this.descricao = ref} />
                         </div>
                         <div className='form-group'>
-                            <label htmlFor='photo'>Foto</label>
-                            <input id='photo' className='form-control-file' type='file' ref={(ref) => this.foto = ref} />
+                            <label htmlFor='src'>Foto</label>
+                            <input id='src' className='form-control-file' type='file' onChange={this.handleChange} ref={(ref) => this.foto = ref} />
                         </div>
-                        <button type='submit' className='btn btn-primary'>Salvar Anúncio</button>
+                        <button type='submit' className='btn btn-primary'>Salvar Arte</button>
                     </form>
                 </div>
             </div>

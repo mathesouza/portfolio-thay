@@ -3,7 +3,7 @@ import Gallery from 'react-grid-gallery';
 
 import base from '../base';
 
-const IMAGES =[{}]
+
 
 class GalleryArts extends Component{
     constructor(props){
@@ -18,19 +18,20 @@ class GalleryArts extends Component{
     }
     render(){
         return(
-            <div>
+            <div id='teste'>
+                <Gallery images=
                 {
                     Object.keys(this.state.artes).map((key)=>{
                         const arte = this.state.artes[key]
                         let teste={
-                            src:arte.foto,
-                            thumbnail:arte.foto,
+                            src: arte.src,
+                            thumbnail: arte.src,
+                            thumbnailWidth: arte.thumbnailWidth,
+                            thumbnailHeight:arte.thumbnailHeight,
                         }
-                        IMAGES.push(teste)
+                        return teste
                     })
-
-                }
-                <Gallery images={IMAGES}/>
+                }/>
             </div>
         )
     }

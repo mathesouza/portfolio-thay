@@ -12,11 +12,11 @@ class App extends Component {
             <Header/>
             <Router>
                 <Switch>
-                    <Route path='/' component={GalleryArts}/>
                     <Route path='/nova-arte' component={NewArt}/>
+                    <Route path='/' component={GalleryArts}/>
                 </Switch>
             </Router>
-            
+
             <Footer/>
         </div>
 
