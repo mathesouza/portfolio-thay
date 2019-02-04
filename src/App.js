@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import NewArt from './components/NewArt';
 import GalleryArts from './components/GalleryArts';
+import Login from './components/Login';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
             <Router>
                 <Switch>
                     <Route path='/nova-arte' component={NewArt}/>
+                    <Route path='/login' component={Login}/>
                     <Route path='/' component={GalleryArts}/>
                 </Switch>
             </Router>
