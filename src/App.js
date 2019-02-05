@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import NewArt from './components/NewArt';
 import GalleryArts from './components/GalleryArts';
 import Login from './components/Login';
+import Admin from './components/Admin';
 
 class App extends Component {
   render() {
@@ -13,8 +14,8 @@ class App extends Component {
             <Header/>
             <Router>
                 <Switch>
-                    <Route path='/nova-arte' component={NewArt}/>
-                    <Route path='/login' component={Login}/>
+                    <Route path='/admin' component={Admin}/>
+                    <Route exact path='/login' component={Login}/>
                     <Route path='/' component={GalleryArts}/>
                 </Switch>
             </Router>

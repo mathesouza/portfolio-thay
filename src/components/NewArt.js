@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Redirect} from 'react-router-dom'
 
-import Base,{Storage} from '../base'
+import Base,{Storage,auth} from '../base'
 
 class novaArte extends Component {
 
@@ -10,12 +10,15 @@ class novaArte extends Component {
         this.state = {
             titulo:'',
             descricao:'',
-            src:''
+            src:'',
+            salvando:false
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
     }
     handleSubmit(e){
+
+        this.setState({salvando:true})
 
         const file = this.foto.files[0]
         const {name,size} = file
@@ -41,6 +44,9 @@ class novaArte extends Component {
                     }).catch(err=>{
                         console.log(err)
                     })
+                    .then(
+                        window.location = '/'
+                    )
                 }
 
             }).catch(err=>{
@@ -81,7 +87,7 @@ class novaArte extends Component {
                             <label htmlFor='src'>Foto</label>
                             <input id='src' className='form-control-file' type='file' onChange={this.handleChange} ref={(ref) => this.foto = ref} />
                         </div>
-                        <button type='submit' className='btn btn-primary'>Salvar Arte</button>
+                        <button type='submit' disabled={this.state.salvando} className='btn btn-primary'>Salvar Arte</button>
                     </form>
                 </div>
             </div>
