@@ -13,12 +13,15 @@ class GalleryArts extends Component{
         }
         base.bindToState('/artes',{
             context: this,
-            state: 'artes'
+            state: 'artes',
+            asArray:true
         })
+
     }
     render(){
+        this.state.artes.reverse()
         return(
-            <div id='teste'>
+            <div className='container' id='gallery'>
                 <Gallery images=
                 {
                     Object.keys(this.state.artes).map((key)=>{
@@ -28,10 +31,12 @@ class GalleryArts extends Component{
                             thumbnail: arte.src,
                             thumbnailWidth: arte.thumbnailWidth,
                             thumbnailHeight:arte.thumbnailHeight,
+                            caption:arte.sub,
+                            tags: [{value: arte.titulo, title: "titulo"}]
                         }
                         return teste
                     })
-                }/>
+                } rowHeight='240' />
             </div>
         )
     }
