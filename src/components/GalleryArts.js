@@ -21,24 +21,26 @@ class GalleryArts extends Component{
     render(){
         this.state.artes.reverse()
         return(
-            <div className='container' id='gallery'>
-                <Gallery images=
+
+                <div className='container gallery' id='gallery' >
+                <Gallery  images=
                 {
                     Object.keys(this.state.artes).map((key)=>{
                         const arte = this.state.artes[key]
                         let teste={
                             src: arte.src,
                             thumbnail: arte.src,
-                            thumbnailWidth: arte.thumbnailWidth,
-                            thumbnailHeight:arte.thumbnailHeight,
+                            thumbnailWidth: arte.thumbnailWidth+0,
+                            thumbnailHeight:arte.thumbnailHeight+0,
                             caption:arte.sub,
                             tags: [{value: arte.titulo, title: "titulo"}]
                         }
                         return teste
                     })
-                } rowHeight='240' />
-            </div>
-        )
+                } rowHeight={240} />
+                </div>
+
+            )
     }
 }
 export default GalleryArts
