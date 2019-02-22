@@ -1,8 +1,8 @@
 import React, { Component} from 'react'
 import { Route, Redirect } from 'react-router-dom'
 
-import { auth } from '../base'
-import NewArt from './NewArt'
+import { auth } from '../../base'
+import NewArt from './Arts'
 
 
 const AdminHome = props => <p>Bem vindo</p>

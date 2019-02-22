@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import {Redirect} from 'react-router-dom'
 
-import Base,{Storage,auth} from '../base'
+import Base,{Storage,auth} from '../../base'
 
-class novaArte extends Component {
+class Arts extends Component {
 
     constructor(props){
         super(props)
@@ -70,9 +70,7 @@ class novaArte extends Component {
 
     render(){
         return(
-            <div style={{marginTop:'120px',backgroundColor:'#fff'}}>
-
-            <div className='container'>
+            <div className='container form-art'>
                 <h1>Nova arte</h1>
                     <form onSubmit={this.handleSubmit}>
                         <div className='form-group'>
@@ -90,10 +88,9 @@ class novaArte extends Component {
                         <button type='submit' disabled={this.state.salvando} className='btn btn-primary'>Salvar Arte</button>
                     </form>
                 </div>
-            </div>
         )
     }
 }
-export default novaArte
+export default Arts
 
 //13:00

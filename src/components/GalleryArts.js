@@ -30,14 +30,15 @@ class GalleryArts extends Component{
                         let teste={
                             src: arte.src,
                             thumbnail: arte.src,
-                            thumbnailWidth: arte.thumbnailWidth+0,
-                            thumbnailHeight:arte.thumbnailHeight+0,
-                            caption:arte.sub,
-                            tags: [{value: arte.titulo, title: "titulo"}]
+                            thumbnailWidth: arte.thumbnailWidth/3,
+                            thumbnailHeight:arte.thumbnailHeight/3,
+                            caption:arte.sub
                         }
                         return teste
                     })
-                } rowHeight={240} />
+                }   rowHeight={240}
+                      
+                />
                 </div>
 
             )

@@ -15,7 +15,7 @@ const Header = (props)=>{
                 </div>
                 <div className="mx-auto my-2 order-0 order-md-1 position-relative">
                     <a className="mx-auto" href="/">
-                        <img src="images/header.png" width='120' alt='header' height='120' className="rounded-circle"/>
+                        <img src="../images/header.png" width='120' alt='header' height='120' className="rounded-circle"/>
                     </a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
                         <span className="navbar-toggler-icon"></span>

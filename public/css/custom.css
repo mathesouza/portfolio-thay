@@ -13,7 +13,9 @@ body{
     -webkit-animation: fadein 2s; /* Safari and Chrome */
     -o-animation: fadein 2s; /* Opera */
 }
-
+.tile{
+    background:0!important;
+}
 @keyframes fadein {
     from {
         opacity:0;
@@ -80,4 +82,11 @@ figcaption{
     .navbar {
         height:50px;
     }
+}
+.form-art{
+    box-shadow: 3px 3px 3px 3px rgb(117, 114, 114);
+    margin-top: 70px;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #f0eef5;
 }
