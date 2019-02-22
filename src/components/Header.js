@@ -1,6 +1,7 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-const Header = (props)=>{
+import {connect} from 'react-redux'
+const _Header = (props)=>{
+    
     return(
             <nav id='header' className="navbar navbar-expand-lg navbar-light bg-light header">
                 <div className="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
@@ -34,5 +35,9 @@ const Header = (props)=>{
         </nav>
     )
 }
-
+const Header = connect(
+    state =>({
+        logged: state.logged
+    })
+)(_Header)
 export default Header

@@ -27,16 +27,17 @@ class GalleryArts extends Component{
                 {
                     Object.keys(this.state.artes).map((key)=>{
                         const arte = this.state.artes[key]
-                        let teste={
+                        let img={
                             src: arte.src,
                             thumbnail: arte.src,
-                            thumbnailWidth: arte.thumbnailWidth/3,
-                            thumbnailHeight:arte.thumbnailHeight/3,
+                            thumbnailWidth: arte.thumbnailWidth,
+                            thumbnailHeight:arte.thumbnailHeight,
                             caption:arte.sub
                         }
-                        return teste
+                        return img
                     })
-                }   rowHeight={240}
+                }   rowHeight={300}
+                    backdropClosesModal={true}
                       
                 />
                 </div>
