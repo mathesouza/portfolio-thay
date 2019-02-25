@@ -37,7 +37,7 @@ class Login extends Component{
                 error:false,
                 isLogged:true
             })
-            window.location = '/admin/nova-arte'
+            window.location = '/admin'
         })
         .catch((err)=>{
             this.setState({

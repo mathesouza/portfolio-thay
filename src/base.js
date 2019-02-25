@@ -1,5 +1,5 @@
 const config = {
-    apiKey: "",
+    apiKey: "AIzaSyB9BSN58F1KojMqVcCMHocpDVdU47guF20",
     authDomain: "portfolio-thay.firebaseapp.com",
     databaseURL: "https://portfolio-thay.firebaseio.com",
     projectId: "portfolio-thay",
