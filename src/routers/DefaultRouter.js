@@ -6,22 +6,12 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import GalleryArts from '../components/GalleryArts'
 import Login from '../components/Login'
-import {auth} from '../base'
+
 import {connect} from 'react-redux'
 
-const LOGGED = 'LOGGED'
 
 class DefaultRouter extends Component{
-    constructor(props){
-        super(props)
-    }
-    componentDidMount(){
-        auth.onAuthStateChanged(user =>{
-            if(!!user){
-                this.props.dispatch({type:LOGGED})
-            }
-        })
-    }
+    
     render(){
         return(
             <div>

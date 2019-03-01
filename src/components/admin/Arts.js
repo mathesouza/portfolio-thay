@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
-import {Redirect} from 'react-router-dom'
 
-import Base,{Storage,auth} from '../../base'
+import Base,{Storage} from '../../base'
 
 class Arts extends Component {
 
@@ -21,7 +20,8 @@ class Arts extends Component {
         this.setState({salvando:true})
 
         const file = this.foto.files[0]
-        const {name,size} = file
+        //{size}
+        const {name} = file
 
         const ref = Storage.ref(name)
 

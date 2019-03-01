@@ -1,50 +1,59 @@
 import React, { Component} from 'react'
 import { Route, Redirect } from 'react-router-dom'
+import {connect} from 'react-redux'
 
-import { auth } from '../base'
 import NewArt from '../components/admin/Arts'
+import AdminHeader from '../components/admin/AdminHeader';
+import Logout from '../components/admin/Logout'
+import Loader from '../Loader'
+import {auth} from '../base'
 
-const AdminHome = props => <p>Bem vindo</p>
+const LOGINSUCESS = 'LOGINSUCESS'
+const LOGINFAILED = 'LOGINFAILED'
 
+const todo = ()=>{ return <p>todo</p>}
 class Admin extends Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            isAuthing: true,
-            isLoggedIn:false,
-            user: null
-        }
-    }
     componentDidMount(){
         auth.onAuthStateChanged(user =>{
-            this.setState({
-                isAuthing : false,
-                isLoggedIn: !!user,
-                user: user
-            })
+            if(!!user){
+                this.props.dispatch({type:LOGINSUCESS})
+            }else{
+                this.props.dispatch({type:LOGINFAILED})
+            }
         })
     }
     render(){
-        if(this.state.isAuthing){
-            return <p>Aguarde...</p>
+        if(this.props.isAuthing){
+            return(
+                <Loader />
+            )    
         }
-        if(!this.state.isLoggedIn){
+        if(!this.props.isLogged){
             return <Redirect to='/login'></Redirect>
         }
         return(
-            <div className='container'>
-            <h3>Painel administrador</h3>
-                <Route 
-                    exact  
-                    path='/admin' 
-                    component={AdminHome}/>
-                <Route
-                    path={this.props.match.url+'/nova-arte'}
-                    component={ NewArt }
-                />
+            <div>
+                <AdminHeader/>
+                    <Route
+                        path={'/'}
+                        component={ todo }
+                    />
+                    <Route
+                        path={this.props.match.url+'/nova-arte'}
+                        component={ NewArt }
+                    />
+                    <Route
+                        path={this.props.match.url+'/logout'}
+                        component={ Logout }
+                    />
             </div>
         )
     }
 }
 
-export default Admin
+const mapStateToProps = state =>({
+    isLogged: state.isLogged,
+    isAuthing: state.isAuthing
+})
+
+export default connect(mapStateToProps)(Admin)

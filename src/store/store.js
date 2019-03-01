@@ -1,14 +1,16 @@
 import { createStore } from 'redux'
 
 const initialState = {
-    logged:false
+    isLogged:false,
+    isAuthing:true,
 }
 
 function reducer(state = initialState,action){
     switch(action.type){
-        case 'LOGGED':
-            console.log(Object.assign({}, state, {logged:true}))
-            return Object.assign({}, state, {logged:true})
+        case 'LOGINFAILED':
+            return Object.assign({}, state, {isLogged:false,isAuthing:false})
+        case 'LOGINSUCESS':
+            return Object.assign({}, state, {isLogged:true,isAuthing:false})
         default:
             return state
     }

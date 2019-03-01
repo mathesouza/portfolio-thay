@@ -2,14 +2,14 @@ import React,{Component} from 'react';
 import Gallery from 'react-grid-gallery';
 
 import base from '../base';
-
-
+import Loader from '../Loader';
 
 class GalleryArts extends Component{
     constructor(props){
         super(props)
         this.state = {
-            artes:[]
+            artes:[],
+            loading:true
         }
         base.bindToState('/artes',{
             context: this,
@@ -19,9 +19,13 @@ class GalleryArts extends Component{
 
     }
     render(){
+        // if(!this.state.artes.length){
+        //     return(
+        //         <Loader/>
+        //     )
+        // }
         this.state.artes.reverse()
         return(
-
                 <div className='container gallery' id='gallery' >
                 <Gallery  images=
                 {
@@ -41,7 +45,6 @@ class GalleryArts extends Component{
                       
                 />
                 </div>
-
             )
     }
 }

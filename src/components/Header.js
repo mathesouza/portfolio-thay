@@ -1,7 +1,5 @@
 import React from 'react'
-import {connect} from 'react-redux'
-const _Header = (props)=>{
-    
+const Header = (props)=>{
     return(
             <div>
                 <nav id='header' className="navbar navbar-expand-lg navbar-light bg-light header">
@@ -34,33 +32,13 @@ const _Header = (props)=>{
                         </ul>
                     </div>
                 </nav>
-                {
-                    props.logged &&
-                    <nav id='header' className="navbar navbar-expand-lg navbar-light bg-light header">
-                        <div className="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
-                            <ul className="navbar-nav ml-auto text-center">
-                                <li className="nav-item active">
-                                    <a className="nav-link" href="/admin/nova-arte">Nova Arte</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
-                            <ul className="navbar-nav mr-auto text-center">
-                                
-                                <li className="nav-item">
-                                    <a className="nav-link" href="/admin/logout">Log Out</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                }
             </div>
     )
 }
-const Header = connect(
-    state =>({
-        logged: state.logged
-    })
-)(_Header)
+// const Header = connect(
+//     state =>({
+//         isLogged: state.isLogged
+//     })
+// )(_Header)
 
 export default Header
