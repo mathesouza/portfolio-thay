@@ -4,11 +4,8 @@ import {Switch,Route,BrowserRouter as Router} from 'react-router-dom'
 import AdminRouter from './AdminRouter'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import GalleryArts from '../components/GalleryArts'
+import GalleryArts from '../features/home-gallery'
 import Login from '../components/Login'
-
-import {connect} from 'react-redux'
-
 
 class DefaultRouter extends Component{
     
@@ -29,4 +26,4 @@ class DefaultRouter extends Component{
     }
 }
 
-export default connect()(DefaultRouter)
+export default DefaultRouter

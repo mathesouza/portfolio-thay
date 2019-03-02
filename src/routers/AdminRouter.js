@@ -7,9 +7,8 @@ import AdminHeader from '../components/admin/AdminHeader';
 import Logout from '../components/admin/Logout'
 import Loader from '../Loader'
 import {auth} from '../base'
+import { LOGINSUCESS, LOGINFAILED } from '../store/action-types';
 
-const LOGINSUCESS = 'LOGINSUCESS'
-const LOGINFAILED = 'LOGINFAILED'
 
 const todo = ()=>{ return <p>todo</p>}
 class Admin extends Component{
