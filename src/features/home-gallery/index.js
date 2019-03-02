@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import Gallery from 'react-grid-gallery';
 
 import base from '../../base';
@@ -33,7 +33,7 @@ class GalleryArts extends Component {
                     rowHeight={300}
                     backdropClosesModal={true}
                     images={mapStorageToGallery(this.state.artes)}
-                />   
+                    />
             </div>
         )
     }

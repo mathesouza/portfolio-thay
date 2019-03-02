@@ -9,9 +9,9 @@ const initialState = {
 function reducer( state = initialState, action ) {
     switch(action.type){
         case LOGINSUCCESS:
-            return {...state, isLogged: false, isAuthing: false }
-        case LOGINFAILED:
             return {...state, isLogged: true, isAuthing: false }
+        case LOGINFAILED:
+            return {...state, isLogged: false, isAuthing: false }
         default:
             return state
     }
