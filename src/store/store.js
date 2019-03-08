@@ -1,16 +1,17 @@
-import { createStore } from 'redux'
+import { createStore } from 'redux';
+import { LOGINSUCCESS, LOGINFAILED } from './action-types'
 
 const initialState = {
     isLogged:false,
     isAuthing:true,
 }
 
-function reducer(state = initialState,action){
+function reducer( state = initialState, action ) {
     switch(action.type){
-        case 'LOGINFAILED':
-            return Object.assign({}, state, {isLogged:false,isAuthing:false})
-        case 'LOGINSUCESS':
-            return Object.assign({}, state, {isLogged:true,isAuthing:false})
+        case LOGINSUCCESS:
+            return {...state, isLogged: true, isAuthing: false }
+        case LOGINFAILED:
+            return {...state, isLogged: false, isAuthing: false }
         default:
             return state
     }
@@ -18,4 +19,4 @@ function reducer(state = initialState,action){
 
 const store = createStore(reducer)
 
-export default store
+export default store;

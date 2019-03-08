@@ -2,27 +2,28 @@ import React, { Component} from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import {connect} from 'react-redux'
 
-import NewArt from '../components/admin/Arts'
-import AdminHeader from '../components/admin/AdminHeader';
-import Logout from '../components/admin/Logout'
+import NewArt from '../features/admin/Arts'
+import AdminHeader from '../features/admin/AdminHeader';
+import Logout from '../features/admin/Logout'
 import Loader from '../Loader'
 import {auth} from '../base'
+import { LOGINSUCCESS, LOGINFAILED } from '../store/action-types';
+import { NOVA_ARTE, LOGOUT } from './routes/admin';
 
-const LOGINSUCESS = 'LOGINSUCESS'
-const LOGINFAILED = 'LOGINFAILED'
 
-const todo = ()=>{ return <p>todo</p>}
+const Todo = ()=>{ return <p>todo</p>}
 class Admin extends Component{
     componentDidMount(){
         auth.onAuthStateChanged(user =>{
             if(!!user){
-                this.props.dispatch({type:LOGINSUCESS})
+                this.props.dispatch({ type: LOGINSUCCESS })
             }else{
-                this.props.dispatch({type:LOGINFAILED})
+                this.props.dispatch({ type: LOGINFAILED })
             }
         })
     }
     render(){
+        
         if(this.props.isAuthing){
             return(
                 <Loader />
@@ -36,14 +37,14 @@ class Admin extends Component{
                 <AdminHeader/>
                     <Route
                         path={'/'}
-                        component={ todo }
+                        component={ Todo }
                     />
                     <Route
-                        path={this.props.match.url+'/nova-arte'}
+                        path={`${this.props.match.url}/${NOVA_ARTE}`}
                         component={ NewArt }
                     />
                     <Route
-                        path={this.props.match.url+'/logout'}
+                        path={`${this.props.match.url}'/'${LOGOUT}`}
                         component={ Logout }
                     />
             </div>

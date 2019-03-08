@@ -92,5 +92,3 @@ class Arts extends Component {
     }
 }
 export default Arts
-
-//13:00
