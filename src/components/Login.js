@@ -53,9 +53,9 @@ class Login extends Component{
             return <Redirect to='/'></Redirect>
         }
         return(
-            <div className='container-fluid'>
+            <div className='container-fluid'  >
                 <div className='row justify-content-center'>
-                    <div className='col-12 col-sm-6 col-md-3'>
+                    <div className='col-12 col-sm-6 col-md-3' style={{background: 'url(require("images/panda-bg.jpg!important"))'}}>
                         <form className='form-container'>
                             <div className="form-group">
                             <label htmlFor="email">Email</label>
