@@ -44,7 +44,7 @@ class Admin extends Component{
                         component={ NewArt }
                     />
                     <Route
-                        path={`${this.props.match.url}'/'${LOGOUT}`}
+                        path={`${this.props.match.url}/${LOGOUT}`}
                         component={ Logout }
                     />
             </div>
