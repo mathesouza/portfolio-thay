@@ -8,7 +8,7 @@ const AdminHeader = () =>{
                         <ul className="navbar-nav ml-auto text-center">
                             <li className="nav-item active">
                                 <div className="nav-link"   >
-                                    <NavLink to='/admin/nova-arte' >Logout</NavLink>
+                                    <NavLink to='/admin/nova-arte' >Nova arte</NavLink>
                                 </div>
                             </li>
                         </ul>

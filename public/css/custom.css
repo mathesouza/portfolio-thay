@@ -1,5 +1,14 @@
 body{
-    background-color:#e8dffa
+    background: linear-gradient(to right, rgb(172, 182, 229), rgb(116, 235, 213));
+}
+.bg-gradient-left{
+    background: linear-gradient(to left, rgb(211, 214, 228), rgb(179, 238, 227));
+    border-radius: 20px;
+    margin-top: 15px;
+}
+div.center {
+    display: flex;
+    justify-content: center;
 }
 .bg-dark{
     background-color: #011a3f!important
@@ -101,6 +110,6 @@ figcaption{
     top: 0;
     left: 0;
     position: fixed!important;
-    background-color: #d6e7ff;
+
     opacity: 0.5;
 }
