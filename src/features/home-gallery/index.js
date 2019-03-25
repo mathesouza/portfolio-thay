@@ -3,7 +3,6 @@ import Gallery from 'react-grid-gallery';
 
 import base from '../../base';
 import Loader from '../../Loader';
-import { mapStorageToGallery } from '../../services/images';
 
 class GalleryArts extends Component {
 
@@ -27,7 +26,7 @@ class GalleryArts extends Component {
         this.setState({limitToLast:this.state.limitToLast+3})
     }
     render(){
-        if(this.state.limitToLast==6){
+        if(this.state.limitToLast===6){
             this.state.artes.reverse()
         }
         let artes = []
@@ -41,21 +40,24 @@ class GalleryArts extends Component {
         });
         
         return(
-            <div>
-                {/*
-                    this.state.artes.length<this.state.limitToLast &&
+            <div  style={{marginTop:'76 px',backgroundColor:'rgb(127,127,127,0.5)'}}>
+                {
+                    this.state.artes.length===0 &&
                     <Loader/>
-                } */}
-                <div className='container gallery' id='gallery'>
-                    <Gallery        
-                        rowHeight={400}
-                        backdropClosesModal={true}
-                        images={mapStorageToGallery(artes)}
-                        margin={10}
-                    />
+                }
+                <div className='container'>
+                    <div className='gallery' id='gallery'>
+                        <Gallery        
+                            rowHeight={400}
+                            backdropClosesModal={true}
+                            images={artes}
+                            margin={10}
+                        />
+                    </div>
+                        
                 </div>
                 <div className='center'>
-                    <button className='btn bg-gradient-left' disabled={this.state.artes.length<this.state.limitToLast} onClick={this.handleClick}> Carregar mais</button>
+                    <button className='btn bg-gradient-left' disabled={this.state.artes.length<=this.state.limitToLast} onClick={this.handleClick}>Carregar mais</button>
                 </div>
             </div>
         )
