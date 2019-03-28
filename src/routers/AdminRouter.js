@@ -2,7 +2,8 @@ import React, { Component} from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import {connect} from 'react-redux'
 
-import NewArt from '../features/admin/Arts'
+import Arts from '../features/admin/Arts'
+import NewArt from '../features/admin/NewArt'
 import AdminHeader from '../features/admin/AdminHeader';
 import Logout from '../features/admin/Logout'
 import Loader from '../Loader'

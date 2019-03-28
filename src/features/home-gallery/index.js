@@ -40,18 +40,19 @@ class GalleryArts extends Component {
         });
         
         return(
-            <div  style={{marginTop:'76 px',backgroundColor:'rgb(127,127,127,0.5)'}}>
+            <div>
                 {
                     this.state.artes.length===0 &&
                     <Loader/>
                 }
-                <div className='container'>
-                    <div className='gallery' id='gallery'>
+                <div className='container gallery' style={{backgroundColor:'rgba(255, 255, 255, 0.70)',marginTop:'auto'}} id='gallery' >
+                    <div style={{marginTop:'65px'}}>
                         <Gallery        
                             rowHeight={400}
                             backdropClosesModal={true}
                             images={artes}
                             margin={10}
+                            enableImageSelection={false}
                         />
                     </div>
                         
