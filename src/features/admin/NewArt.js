@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import Resizer from 'react-image-file-resizer';
 
 import Base,{Storage} from '../../base'
 
@@ -20,7 +21,7 @@ class NewArt extends Component {
         this.setState({salvando:true})
 
         const file = this.foto.files[0]
-        //{size}
+
         const {name} = file
 
         const ref = Storage.ref(name)
@@ -29,25 +30,56 @@ class NewArt extends Component {
             ref.getDownloadURL().then(url=>{
                 const img = new Image()
                 img.src = url
-
+                
                 img.onload = () => {
-                    var novaArte = {
-                        titulo : this.titulo.value,
-                        sub : this.descricao.value,
-                        src: url,
-                        thumbnail: url,
-                        thumbnailWidth:(img.width/2),
-                        thumbnailHeight:(img.height/2)
-                    }
+                let {height,width} = img
+                var thumbnailHeight = 900
+                let reference = height/thumbnailHeight
+                var thumbnailWidth = width/reference
 
-                    Base.push('artes',{
-                        data: novaArte
-                    }).catch(err=>{
-                        console.log(err)
-                    })
-                    .then(
-                        window.location = '/'
-                    )
+                    Resizer.imageFileResizer(
+                        file,
+                        thumbnailWidth,
+                        thumbnailHeight,
+                        'JPEG',
+                        100,
+                        0,
+                        uri => {
+                            const {name} = file
+                            const ref = Storage.ref(name+'thumbnail')
+            
+                            ref.put(uri).then(imgThumbnail =>{
+                                ref.getDownloadURL().then(urlThumbail=>{
+                                    
+                                    var novaArte = {
+                                        titulo : this.titulo.value,
+                                        sub : this.descricao.value,
+                                        src: url,
+                                        thumbnail: urlThumbail,
+                                        thumbnailWidth:width,
+                                        thumbnailHeight:height
+                                    }
+                
+                                    Base.push('artes',{
+                                        data: novaArte
+                                    }).catch(err=>{
+                                        console.log(err)
+                                    })
+                                    .then(
+                                        window.location = '/'
+                                    )
+                    
+                                }).catch(err=>{
+                                    console.log(err)
+                                })
+                            }).catch(err=>{
+                                console.log(err)
+                            })
+                            
+                        },
+                        'blob'
+                    );
+
                 }
 
             }).catch(err=>{
