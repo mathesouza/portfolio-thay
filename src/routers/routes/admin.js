@@ -1,2 +1,2 @@
-export const NOVA_ARTE='nova-arte';
-export const LOGOUT='logout';
+export const NOVA_ARTE = "nova-arte";
+export const LOGOUT = "logout";
