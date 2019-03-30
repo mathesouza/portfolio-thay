@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Resizer from 'react-image-file-resizer';
 
 import Base,{Storage} from '../../base'
+import Loader from '../../Loader'
 
 class NewArt extends Component {
 
@@ -88,7 +89,7 @@ class NewArt extends Component {
         }).catch(err=>{
             console.log(err)
         })
-
+        this.setState({salvando:false})
         e.preventDefault()
     }
 
@@ -104,6 +105,10 @@ class NewArt extends Component {
     render(){
         return(
             <div className='container form-art'>
+               {
+                   this.state.salvando &&
+                   <Loader/>
+               }
                 <h1>Nova arte</h1>
                     <form onSubmit={this.handleSubmit}>
                         <div className='form-group'>
