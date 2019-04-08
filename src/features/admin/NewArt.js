@@ -42,7 +42,7 @@ class NewArt extends Component {
                         file,
                         thumbnailWidth,
                         thumbnailHeight,
-                        'JPEG',
+                        'PNG',
                         100,
                         0,
                         uri => {
