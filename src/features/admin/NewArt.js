@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import Resizer from 'react-image-file-resizer';
+import React, { Component } from "react";
+import Resizer from "react-image-file-resizer";
 
 import Base,{Storage} from '../../base'
 import Loader from '../../Loader'
@@ -129,4 +129,4 @@ class NewArt extends Component {
         )
     }
 }
-export default NewArt
+export default NewArt;
