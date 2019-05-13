@@ -1,7 +1,6 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6be7493489114c14b46404d5e85f83c0)](https://www.codacy.com/app/mathesouza/portfolio-thay?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mathesouza/portfolio-thay&amp;utm_campaign=Badge_Grade)
 
-<<<<<<< HEAD
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 
 ## Available Scripts
 
