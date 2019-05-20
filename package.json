@@ -5,8 +5,8 @@
   "dependencies": {
     "firebase": "^5.8.1",
     "re-base": "^4.0.0",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
+    "react": "next",
+    "react-dom": "next",
     "react-grid-gallery": "^0.5.3",
     "react-image-file-resizer": "^0.1.7",
     "react-loader-spinner": "^2.3.0",
