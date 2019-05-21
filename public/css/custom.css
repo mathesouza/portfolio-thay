@@ -22,6 +22,14 @@ div.center {
     -webkit-animation: fadein 2s; /* Safari and Chrome */
     -o-animation: fadein 2s; /* Opera */
 }
+#gallery{
+    margin-top: auto;
+    padding-bottom: 15px;
+}
+.light-bg{
+    background-color: rgba(255, 255, 255, 0.70)
+}
+
 .tile{
     background:0!important;
 }
@@ -71,7 +79,9 @@ div.center {
     border-radius: 10px;
     box-shadow: 0px 0px 10px 0px #000;
 }
-
+.ReactGridGallery_tile{
+    background-color: transparent!important;
+}
 .gallery{
     overflow: auto;
     width: auto;
