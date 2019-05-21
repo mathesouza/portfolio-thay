@@ -45,7 +45,7 @@ class GalleryArts extends Component {
                     this.state.artes.length===0 &&
                     <Loader/>
                 }
-                <div className='container gallery' style={{backgroundColor:'rgba(255, 255, 255, 0.70)',marginTop:'auto',paddingBottom:'15px'}} id='gallery' >
+                <div className='container gallery' id='gallery' >
                     <div style={{marginTop:'65px'}}>
                         <Gallery        
                             rowHeight={400}
